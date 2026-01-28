@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Samples</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+    * {margin: 0; padding: 0;}
+    @font-face {
+        font-family: Candara;
+        src: url(Candara.ttf);
+    } #banner {
+        margin: 6px 0 6px 6px;
+    } h1 {
+        font: 48pt/1.4em 'Dancing Script';
+        text-align: center;
+        margin: 12px 0 12px 0;
+    } h2 {
+        font: 14pt/1.4em Candara, sans-serif;
+        text-align: center;
+        margin: 0 0 18px 0;
+    } p {
+        font: 14pt/1.4em Candara, serif;
+        width: 600px;
+        margin: 48px auto;
+    } figcaption {
+        font: italic 14pt/1.4em Georgia, serif;
+        text-align: center;
+        margin-bottom: 48px;
+    } figure {
+        width: 384px;
+    } details {
+        font: 12pt/1.4em Candara;
+        margin-top: 3px;
+    } .image-container {
+        width: 1152px;
+        margin: 0px auto 36px auto;
+        display: grid;
+        grid-template: repeat(3,auto) / repeat(3,384px);
+        gap: 2px;
+    } .image-container img {
+        width: 384px;
+        height: auto;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    } .zoomed {
+        position: relative;
+        z-index: 1000;
+        transform: scale(4);
+        box-shadow: 2px 3px 6px gray;
+    }
+</style>
+</head>
+<body>
+  <img id="banner" src="mf_logo1.jpg" />
+  <h1>Pearson 212</h1>
+  <h2>Mockup page to show utility of zoomable residence images</h2>
+  <div class="image-container">
+    <figure>
+    <img src="image1.jpg" alt="Image 1">
+    <details>
+    <summary>Living Room</summary>
+    Living room view looking east (click image to enlarge)
+    </details>
+    </figure>
+    <figure>
+    <img src="image2.jpg" alt="Image 2">
+    <details>
+    <summary>Kitchen</summary>
+    Kitchen view looking southwest
+    </details>
+    </figure>
+    <figure>
+    <img src="image3.jpg" alt="Image 3">
+    <details>
+    <summary>Kitchen</summary>
+    Kitchen view looking west
+    </details>
+    </figure>
+    <figure>
+    <img src="image4.jpg" alt="Image 4">
+    <details>
+    <summary>Bedroom</summary>
+    Bedroom looking southeast
+    </details>
+    </figure>
+    <figure>
+    <img src="image5.jpg" alt="Image 5">
+    <details>
+    <summary>Bedroom</summary>
+    Bedroom looking southwest
+    </details>
+    </figure>
+    <figure>
+    <img src="image6.jpg" alt="Image 6">
+    <details>
+    <summary>Bathroom</summary>
+    Bathroom looking southwest
+    </details>
+    </figure>
+    <figure>
+    <img src="image7.jpg" alt="Image 7">
+    <details>
+    <summary>Closet</summary>
+    Front closet
+    </details>
+    </figure>
+    <figure>
+    <img src="image8.jpg" alt="Image 8">
+    <details>
+    <summary>Window view</summary>
+    Living room window view of Buckley building
+    </details>
+    </figure>
+    <figure>
+    <img src="image9.jpg" alt="Image 9">
+    <details>
+    <summary>Floor plan</summary>
+    Floor plan of Buckley 212
+    </details>
+    </figure>
+</div>
+
+<script>
+    const images = document.querySelectorAll('.image-container img');
+    let zoomedImage = null;
+
+    images.forEach(img => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevents the body click from firing
+        // If already zoomed, do nothing
+        if (zoomedImage && zoomedImage !== img) {
+          zoomedImage.classList.remove('zoomed');
+        }
+
+        if (img.classList.contains('zoomed')) {
+          img.classList.remove('zoomed');
+          zoomedImage = null;
+        } else {
+          img.classList.add('zoomed');
+          zoomedImage = img;
+        }
+      });
+    });
+
+    // Click outside to reset zoom
+    document.body.addEventListener('click', () => {
+      if (zoomedImage) {
+        zoomedImage.classList.remove('zoomed');
+        zoomedImage = null;
+      }
+    });
+</script>
+<script lang="javascript">
+function toggleAllDetails() {
+  // Get all <details> elements on the page
+  const allDetails = document.querySelectorAll('details');
+
+  // Iterate through each <details> element
+  allDetails.forEach(detailsElement => {
+    // Toggle the 'open' attribute
+    // If it has 'open', remove it (closes the details)
+    // If it doesn't have 'open', add it (opens the details)
+    if (detailsElement.hasAttribute('open')) {
+      detailsElement.removeAttribute('open');
+    } else {
+      detailsElement.setAttribute('open', true);
+    }
+  });
+}
+</script>
+</body>
+</html>
