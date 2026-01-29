@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>JavaScript Samples</title>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playball&display=swap" rel="stylesheet">
 <style>
     * {margin: 0; padding: 0;}
     @font-face {
@@ -12,7 +12,7 @@
     } #banner {
         margin: 6px 0 6px 6px;
     } h1 {
-        font: 48pt/1.4em 'Dancing Script';
+        font: 48pt/1.4em Playball;
         text-align: center;
         margin: 12px 0 12px 0;
     } h2 {
@@ -21,7 +21,7 @@
         margin: 0 0 18px 0;
     } p {
         font: 14pt/1.4em Candara, serif;
-        width: 600px;
+        width: 768px;
         margin: 48px auto;
     } figcaption {
         font: italic 14pt/1.4em Georgia, serif;
@@ -37,7 +37,7 @@
         margin: 0px auto 36px auto;
         display: grid;
         grid-template: repeat(3,auto) / repeat(3,384px);
-        gap: 2px;
+        gap: 3px;
     } .image-container img {
         width: 384px;
         height: auto;
@@ -55,6 +55,7 @@
   <img id="banner" src="mf_logo1.jpg" />
   <h1>Pearson 212</h1>
   <h2>Mockup page to show utility of zoomable residence images</h2>
+  <p>This cute 2nd floor, one-bedroom, one-bathroom apartment features an open-format kitchen with two-person breakfast bar, glass-door china cabinet, mini dishwasher, and plenty of cabinet space. Six east-facing windows overlook the garden and have wide windowsills with space for plants and knicknacks. Closet space in bedroom and at entrance. Full-width balcony. Washers and dryers in basement. Elevator access. <i>Click images to enlarge.</i></p>
   <div class="image-container">
     <figure>
     <img src="image1.jpg" alt="Image 1">
@@ -106,17 +107,19 @@
     </details>
     </figure>
     <figure>
-    <img src="image8.jpg" alt="Image 8">
+    <img src="image8.svg" alt="Image 8">
     <details>
-    <summary>Window view</summary>
-    Living room window view of Buckley building
+    <summary>Floor plan</summary>
+    Floor plan
     </details>
     </figure>
     <figure>
-    <img src="image9.jpg" alt="Image 9">
+    <a href="entrance-fees.html">
+    <img style="margin-bottom: 32px" src="image9.jpg" alt="Image 9">
+    </a>
     <details>
-    <summary>Floor plan</summary>
-    Floor plan of Buckley 212
+    <summary>Fees (click for link)</summary>
+    Entrance fee options
     </details>
     </figure>
 </div>
